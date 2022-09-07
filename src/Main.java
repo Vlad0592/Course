@@ -1,7 +1,17 @@
 public class Main {
 
 
-    public static String resultFIO(Employee[] employee) {
+    //    public static String resultFIO(Employee[] employee) {
+//        double tmp_id = 0;
+//        String tmp = employee[0].getFIO();
+//        for (int i = 1; i < employee.length; i++) {
+//            tmp_id = employee[i].getId();
+//            System.out.println(employee[i].getFIO());
+//        }
+//        return tmp;
+//    }
+
+    public static String resultFioFIO(Employee[] employee) {
         double tmp_id = 0;
         String tmp = employee[0].getFIO();
         for (int i = 1; i < employee.length; i++) {
@@ -9,6 +19,22 @@ public class Main {
             System.out.println(employee[i].getFIO());
         }
         return tmp;
+    }
+
+    public static int resultFio(Employee[] employee) {
+        for (int i = 0; i < employee.length; i++)
+            System.out.println(employee[i].toString());
+        return 0;
+    }
+
+
+    public static String resultFioToString(Employee[] employee, int id) {
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getId() == id) {
+                return employee[i].toString();
+            }
+        }
+        return "none";
     }
 
 
@@ -32,7 +58,7 @@ public class Main {
 
         }
         //System.out.println("min"+ tmp);
-        return tmp;
+        return tmp_id;
     }
 
     public static int salaryAverage(Employee[] employee) {
@@ -51,7 +77,7 @@ public class Main {
 
         }
         //System.out.println("max"+ tmp);
-        return tmp;
+        return tmp_id;
     }
 
     public static void main(String[] args) {
@@ -75,11 +101,21 @@ public class Main {
 //        System.out.println(result.getMax());
 //        System.out.println(result.getAverage());
 
-        System.out.println("min = " + salaryMin(employee));
+
+        System.out.println(resultFio(employee));
+        System.out.println(resultFioFIO(employee));
         System.out.println("sum = " + salarySum(employee));
-        System.out.println("max = " + salaryMax(employee));
         System.out.println("ave = " + salaryAverage(employee));
-        System.out.println(resultFIO(employee));
+        System.out.println(" min " + resultFioToString(employee, salaryMin(employee)));
+        System.out.println(" max " + resultFioToString(employee, salaryMax(employee)));
+//        System.out.println(resultFIO(employee));
+//        System.out.println(resultFIO(t));
+
+        System.out.println("===");
+
+
 
     }
+
+
 }
